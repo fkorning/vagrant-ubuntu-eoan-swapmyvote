@@ -132,7 +132,7 @@ Vagrant.configure("2") do |config|
   #--------------------------------------------------------------------------------------#
   # Directories: configure directories for mounting shared folders 
   #--------------------------------------------------------------------------------------#
-  # config.vm.provision "shell", "mkdir -p /work/src/scentrics"
+  # config.vm.provision "shell", "mkdir -p /work/swapmyvote"
   #======================================================================================#
   config.vm.provision "shell", inline: <<-SHELL
 
@@ -339,21 +339,33 @@ Vagrant.configure("2") do |config|
     
     echo ""
     echo "installing ruby development tools"
-    #apt-add-repository ppa:brightbox/ruby-ng
-    #apt-get update
-    #apt-get -y install ruby ruby-dev 
-    #apt-get -y install gems rubygems-integration
-    #apt-get -y install ruby-rails ruby-railties
+    apt-add-repository -y ppa:rael-gc/rvm
+    apt-get update
+    apt-get -y install rvm rbenv
+
+    #export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/lib/ssl" 
+    #rbenv install  2.6.5
+
+    
+    apt-add-repository ppa:brightbox/ruby-ng
+    apt-get update
+    
+    apt-get -y install ruby ruby-dev
+    apt-get -y install gems rubygems-integration
+    apt-get -y install ruby-rails ruby-railties
+    apt-get -y install ruby-builder ruby-bundler
     
     cd /tmp/
     wget -c https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.gz
     tar -xzf ruby-2.6.5.tar.gz
     cd ruby-2.6.5
-	./configure --prefix=/usr
+	./configure --prefix=/usr --with-openssl-dir=/usr/lib/ssl
 	make
 	make install
     cd /usr/local/bin
 
+    
+	
 
    
     echo ""
