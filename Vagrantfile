@@ -365,8 +365,18 @@ Vagrant.configure("2") do |config|
     cd /usr/local/bin
 
     
-	
-
+    echo ""
+    echo "installing dependency libs"
+    apt-get -y install libpgf-dev
+    apt-get -y install libpq-dev
+    
+    
+    echo ""
+    echo "installing postgresql"
+    apt-get -y install postgresql postgresql-client
+    
+    
+    
    
     echo ""
     echo "installing oniguruma regexp lib"
