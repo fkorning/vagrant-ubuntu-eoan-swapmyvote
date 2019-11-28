@@ -85,26 +85,7 @@ Best to disable their management from vagrant and install them via shell provisi
 	  #======================================================================================#
 	  config.vbguest.auto_update = false
 
-  
-────────────────────────────────────────────────────────────────────────────
-# Configuration
-────────────────────────────────────────────────────────────────────────────
 
-The VM defaults are for x86-64 (linux, windows, OSX-Intel).  
-
-I'm really not sure about legacy Mac OSX-PPC machines.
-
-The disksize plugin currently sizes the root FS at 20GB.
-
-
-	  #======================================================================================#
-	  # Platform: toggle machine architecture
-	  #--------------------------------------------------------------------------------------#
-	  # Intel x86-64:
-	  # config.vm.box = "ubuntu/ubuntu64"
-	  #======================================================================================#
-	  config.vm.box = "ubuntu/ubuntu64"
-	  config.disksize.size = '20GB'
 
 
 ────────────────────────────────────────────────────────────────────────────
