@@ -42,19 +42,7 @@ This is Ubuntu eoan-ermine VM for virtualbox providing a working ruby 2.6.5 (com
 
 
 
-![win-firewall-inbound-rules.png](win-firewall-inbound-rules.png)
-
-
-![virtualbox machine](virtualbox.png)
-
-
-![working machine](working.png)
-
-
-![sharing folders](sharing.png)
-
-
-![compiler versions](versions.png)
+![screenshot.png](screenshot.png)
 
 
 
