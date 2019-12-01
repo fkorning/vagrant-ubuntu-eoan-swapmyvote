@@ -380,7 +380,7 @@ Vagrant.configure("2") do |config|
     wget -c https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.gz
     tar -xzf ruby-2.6.5.tar.gz
     cd ruby-2.6.5
-   ./configure --prefix=/usr --with-openssl-dir=/usr/lib/ssl
+    ./configure --prefix=/usr --with-rubylibprefix=/usr/lib/ruby/2.6.5 --with-openssl-dir=/usr/lib/ssl
     make
     make install
     cd /usr/local/bin
@@ -389,8 +389,9 @@ Vagrant.configure("2") do |config|
     
     echo ""
     echo "Installing ruby rake and rails"
+    gem install builder:3.2.3
+    gem install bundler:1.17.3
     gem install rake rails
-    
 
     
     
