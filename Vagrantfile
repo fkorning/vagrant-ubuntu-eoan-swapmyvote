@@ -225,7 +225,7 @@ Vagrant.configure("2") do |config|
 
     echo ""  
     echo "creating source directories"
-    mkdir - p /mnt/work/swapmyvote  
+    mkdir -p /mnt/work/swapmyvote  
         
     
     echo ""
@@ -345,20 +345,25 @@ Vagrant.configure("2") do |config|
     cp /usr/local/bin/pip /usr/bin
     pip install --upgrade pip
     
-    
+
     echo ""
     echo "installing ruby development tools"
+    
+    # note: rbenv / rvm are not working! we're installing ruby-2.6.5 from source 
+    
     #apt-add-repository -y ppa:rael-gc/rvm
     #apt-get update
     #apt-get -y install rvm rbenv
-
-    #export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/lib/ssl" 
-    #rbenv install  2.6.5
-
+    
     apt-get -y remove rvm
     rm -f /etc/rvmrc
     rm -f ~/.rvmrv
     
+    #export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/lib/ssl" 
+    #rbenv install  2.6.5
+
+
+    # start with the default ruby-2.5 and gems
     
     apt-add-repository ppa:brightbox/ruby-ng
     apt-get update
@@ -367,6 +372,9 @@ Vagrant.configure("2") do |config|
     apt-get -y install gems rubygems-integration
     apt-get -y install ruby-rails ruby-railties
     apt-get -y install ruby-builder ruby-bundler
+    
+    
+    # now override and compile ruby-2.6.5 from source
     
     cd /tmp/
     wget -c https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.gz
