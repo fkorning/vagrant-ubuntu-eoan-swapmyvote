@@ -415,6 +415,10 @@ Vagrant.configure("2") do |config|
     echo "installing postgresql"
     apt-get -y install postgresql postgresql-client
     
+
+    echo ""
+    echo "installing sqlite3"
+    apt-get install libsqlite3-dev
     
     
    
