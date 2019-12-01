@@ -346,6 +346,26 @@ Vagrant.configure("2") do |config|
     pip install --upgrade pip
     
 
+
+    echo ""
+    echo "installing dependency libs"
+    apt-get -y install libpgf-dev
+    apt-get -y install libpq-dev
+    apt-get -y install libreadline-dev
+    
+    
+    
+    echo ""
+    echo "installing postgresql"
+    apt-get -y install postgresql postgresql-client
+    
+
+    echo ""
+    echo "installing sqlite3"
+    apt-get install libsqlite3-dev
+    
+        
+    
     echo ""
     echo "installing ruby development tools"
     
@@ -401,24 +421,7 @@ Vagrant.configure("2") do |config|
     apt-get -y install yarnpkg
     gem remove trollop
     gem install optimist yarn
-    
-    
-    
-    
-    echo ""
-    echo "installing dependency libs"
-    apt-get -y install libpgf-dev
-    apt-get -y install libpq-dev
-    
-    
-    echo ""
-    echo "installing postgresql"
-    apt-get -y install postgresql postgresql-client
-    
 
-    echo ""
-    echo "installing sqlite3"
-    apt-get install libsqlite3-dev
     
     
    
