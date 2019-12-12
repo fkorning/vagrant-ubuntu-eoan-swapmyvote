@@ -418,18 +418,23 @@ Vagrant.configure("2") do |config|
     
     echo ""
     echo "installing yarn ruby webserver"
+    # disabled: we use yarnpkg, not yarn gem
     #apt-get -y install yarnpkg
     #gem remove trollop
     #gem install optimist yarn
 
+    # make sure yarn gem is absent
+    apt-get -y remove yarn
+    apt-get autoremove
+    rm -f /usr/local/bin/yarn
 
+    # istall yarnpkg
 	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 	echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 	apt-get update
-	apt-get -y install yarn
-
-    
-    
+	apt-get -y install yarn    
+	
+	
    
     echo ""
     echo "installing oniguruma regexp lib"
