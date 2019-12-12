@@ -418,9 +418,15 @@ Vagrant.configure("2") do |config|
     
     echo ""
     echo "installing yarn ruby webserver"
-    apt-get -y install yarnpkg
-    gem remove trollop
-    gem install optimist yarn
+    #apt-get -y install yarnpkg
+    #gem remove trollop
+    #gem install optimist yarn
+
+
+	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+	echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+	apt-get update
+	apt-get -y install yarn
 
     
     
